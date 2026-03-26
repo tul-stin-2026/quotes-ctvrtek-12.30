@@ -63,4 +63,13 @@ public class QuoteController {
                 external.getA()
         );
     }
+
+    @PostMapping("/random")
+    public Quote saveRandomQuote() {
+        Quote quote = getRandomQuote();
+
+        quote.setId((long) (quotes.size() + 1));
+        quotes.add(quote);
+        return quote;
+    }
 }
